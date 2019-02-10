@@ -1,9 +1,7 @@
 var template = Handlebars.compile($('#num-template').html());
-
-var arrayUniqueNum = getArrayUniqueNum();
-var uniqueNum = arrayUniqueNum.join('');
-console.log(uniqueNum);
-var correct = uniqueNum;
+var arrayUniqueNum;
+var uniqueNum;
+var correct ;
 
 $('#input').keypress(function (e) {
     var valueInput = $(this).val();
@@ -38,13 +36,24 @@ $('#input').keypress(function (e) {
         }
     }
     if (valueInput === correct) {
-        $('.ganaste').show();
+        $('.ganaste').show().css({"display": "flex"});
     }
 });
 
+generateNumbers();
+
 $('.close a').on('click', function () {
     $('.ganaste').hide();
+    $('table tbody').empty();
+    generateNumbers();
 });
+
+function generateNumbers() {
+    this.arrayUniqueNum = this.getArrayUniqueNum();
+    this.uniqueNum = this.arrayUniqueNum.join('');
+    console.log(uniqueNum);
+    this.correct = this.uniqueNum;
+}
 
 function getArrayUniqueNum() {
     var arrayUniqueNum = [];
