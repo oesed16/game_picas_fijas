@@ -1,28 +1,36 @@
+/* Estilos para la interfaz principal de usuario */
 html {
     background-color: #f4eff4;
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Estilo genérico para el texto de la interfaz principal de usuario */
 .ali-text {
     text-align: center;
 }
 
+/* Estilos para el input con el cual interactúa el usuario */
 input {
     line-height: 2em;
     text-align: center;
     margin: 10px 0px 30px;
 }
 
+/* Estilos para indicar error (a través de texto) cuando el usuario ingresa un número que no 
+cumple con las especificaciones */
 .error {
     color: red;
 }		
 
+/* Estilos para indicar error (a través del input) cuando el usuario ingresa un número que no 
+cumple con las especificaciones */
 input.invalid {
     background-color: #f2c2bf;
     color: red;
     font-weight: 5em;
 }
 
+/* Estilos para la tabla de la interfaz principal de usuario */
 table, th, td {
     border: 1px solid #bdbfc1;
     border-collapse: collapse;
@@ -32,6 +40,8 @@ th, td {
     padding: 5px;
     width: 80px;
 }
+
+/* Estilos para la Interfaz de ganador */
 .ganaste {
     background-color: black;
     color: white;
@@ -45,9 +55,13 @@ th, td {
     align-items: center;
     justify-content: center;
 }
+
+/* Estilos para el mensaje "Ganaste" */
 .ganaste span {
     font-size: 6em;
 }
+
+/* Estilos para la opción que permite reiniciar el juego */
 .ganaste .close {
     margin-top: 100px;
     position: absolute; 
