@@ -35,28 +35,27 @@ $('#input').keypress(function (e) {
             $(this).addClass("invalid"); // Añade la clase que indica errores a través del input.
             $('p span').addClass("error"); // Añade la clase que indica errores a través de texto.
         }
-    }
-    if (valueInput === correct) { // Condición que valida que el valor ingresado por el usuario corresponde a la respuesta correcta.
-        $('.ganaste').show().css({ "display": "flex" }); // De cumplirse la condición, se muestra la interfaz de ganador, la cual le permite al usuario volver a jugar.
+        if (valueInput === correct) { // Condición que valida que el valor ingresado por el usuario corresponde a la respuesta correcta.
+            $('.ganaste').show().css({ "display": "flex" }); // De cumplirse la condición, se muestra la interfaz de ganador, la cual le permite al usuario volver a jugar.
+            // Función de JQuery que permite escuchar el evento al dar click a la opción "Jugar Nuevamente".
+            $('.close a').on('click', function () { 
+                $('.ganaste').hide(); // Oculta la interfaz de ganador.
+                location.reload(); //  Recarga el documento actual para iniciar un juego nuevo.
+                generateNumber(); // Genera aleatoriamente un nuevo número que contiene cuatro dígitos únicos.
+            });
+        }
     }
 });
 
-generateNumbers(); // Llamado a la función que genera aleatoriamente el número de cuatro dígitos únicos.
-
-// Función de JQuery que permite escuchar el evento al dar click a la opción "Jugar Nuevamente".
-$('.close a').on('click', function () { 
-    $('.ganaste').hide(); // Oculta la interfaz de ganador.
-    $('table tbody').empty(); // Limpia el historial de la tabla almacenado en el juego anterior.
-    generateNumbers(); // Genera aleatoriamente un nuevo arreglo que contiene cuatro dígitos únicos.
-});
+generateNumber(); // Llamado a la función que genera aleatoriamente el número de cuatro dígitos únicos.
 
 // Función que genera aleatoriamente el número de cuatro dígitos únicos.
-function generateNumbers() { 
+function generateNumber() { 
     this.arrayUniqueNum = this.getArrayUniqueNum(); // Obtiene el arreglo que contiene el número de cuatro dígitos únicos.
     this.uniqueNum = this.arrayUniqueNum.join(''); // Obtiene el número de cuatro dígitos únicos.
-    console.log(uniqueNum); // Imprime en consola el número generado aleatoriamente.
     this.correct = this.uniqueNum; // Asigna el número generado aleatoriamente como respuesta correcta.
 }
+console.log(correct); // Imprime en consola el valor de la respuesta correcta.
 
 // Función que genera aleatoriamente el arreglo de cuatro dígitos únicos.
 function getArrayUniqueNum() {
